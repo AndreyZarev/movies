@@ -17,5 +17,5 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) =>{
 res.render("home", {layout: false});
 });
-
+app.use(express.static(path.join(__dirname, "static")));
 app.listen(port, ()=> console.log(`Server has been sucsessfully lauched on port ${port}`))
