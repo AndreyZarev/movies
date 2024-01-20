@@ -11,11 +11,11 @@ app.engine("hbs", handlebars.engine({
 }));
 
 app.set('view engine', "hbs");
-app.set('view', path.join(__dirname, 'src', 'views'));
+app.set('views', path.join(__dirname, 'views'));
     
 
 app.get('/', (req, res) =>{
-app.router()
+res.render("home", {layout: false});
 });
 
 app.listen(port, ()=> console.log(`Server has been sucsessfully lauched on port ${port}`))
