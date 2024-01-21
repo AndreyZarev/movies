@@ -2,17 +2,21 @@ const router = require('express').Router();
 
 const homeController = require('./controllers/homeController')
 
-const aboutController = require('./controllers/aboutControler')
+const aboutController = require('./controllers/aboutController')
+
+const createController = require('./controllers/createController')
+
+
 
 router.use(aboutController)
+
 router.use(homeController)
 
+router.use(createController)
 
 
 
-router.get('/create', (req, res) => {
-    res.render("create", { layout: false });
-});
+
 
 router.get('/search', (req, res) => {
     res.render("search", { layout: false });
