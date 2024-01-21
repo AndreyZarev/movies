@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-router.get('/create', (req, res) => {
+router.get('/movie/create', (req, res) => {
     res.render("create", { layout: false });
 });
 
