@@ -14,9 +14,12 @@ configHandlebars(app)
 configExpress(app)
 
 mongoose.connect('mongodb://localhost/27017/movies')
-.then(console.log(
-    "dp is connected"
-))
+.then(() => {
+    console.log("dp is connected")
+    app.listen(port, ()=> console.log(`Server has been sucsessfully lauched on port ${port}`))
+}
+
+
+).catch(err => console(err));
 app.use(routes)
 
-app.listen(port, ()=> console.log(`Server has been sucsessfully lauched on port ${port}`))
