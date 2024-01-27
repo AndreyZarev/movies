@@ -7,8 +7,9 @@ router.get('/movie/create', (req, res) => {
 });
 
 router.post('/movie/create', (req, res) => {
-   
-    movieService.create(req.body);
+   const newMovie = req.body
+   debugger
+    movieService.create(newMovie);
     res.redirect('/')
 });
 
