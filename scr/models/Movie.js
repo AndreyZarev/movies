@@ -2,45 +2,44 @@ const mongoose = require('mongoose');
 
 
 
-const movieSchema = mongoose.Schema({
+const movieSchema = new mongoose.Schema({
     title :{
-        type: 'String',
+        type: String,
         required: true,
     },
 genre : {
-    type: 'String',
+    type: String,
     required: true,
 },
 
 director : {
-    type: 'String',
+    type: String,
     required: true,
 } ,
  year :{
-    type: 'Number',
+    type: Number,
     required: true,
     min: 1900,
     max: 2030,
  } ,
 
 rating : {
-    type: 'Number',
+    type: Number,
     required: true,
     min: 0,
     max: 5,
 },
 
  description: {
-    type: 'String',
+    type: String,
     required: true,
-    max: 1000,
+    maxLength: 1000,
  },
   imageURL: {
-    type: 'String',
+    type: String,
     required: true,
-    // validate:
-  },
-  cast: {
-
-  } 
+    match:/^https?/
+  }
 })
+
+const Movie = mongoose.model('Movie', movieSchema)
