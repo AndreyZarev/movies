@@ -21,4 +21,8 @@ exports.create = (movieData) => {
     console.log(movies);
 }
 
+exports.getOne = (movieId) => { 
+    console.log(movies[movieId]);
+return movies[movieId];
+};
 
