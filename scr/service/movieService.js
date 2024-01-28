@@ -38,11 +38,11 @@ exports.getOne = (movieId) => {
 exports.search = (title, genre, year) => {
 let moviesResult = movies.slice()
     if (title) {
-        moviesResult = moviesResult.filter(movie => movie.title.includes(title))
+        moviesResult = moviesResult.filter(movie => movie.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
     }
 
     if (genre) {
-        moviesResult = moviesResult.filter(movie => movie.title.includes(genre))
+        moviesResult = moviesResult.filter(movie => movie.title.toLocaleLowerCase().includes(genre.toLocaleLowerCase()))
             }
 
     if (year) {
