@@ -35,3 +35,20 @@ exports.getOne = (movieId) => {
     return correctOne;
 };
 
+exports.search = (title, genre, year) => {
+let moviesResult = movies.slice()
+    if (title) {
+        moviesResult = moviesResult.filter(movie => movie.title.includes(title))
+    }
+
+    if (genre) {
+        moviesResult = moviesResult.filter(movie => movie.title.includes(genre))
+            }
+
+    if (year) {
+        moviesResult = moviesResult.filter(movie => movie.year == year)
+                    }   
+
+                   
+                    return moviesResult;      
+};

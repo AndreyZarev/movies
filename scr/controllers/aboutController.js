@@ -21,4 +21,6 @@ movie.rendering.fill(true)
 res.render("details", {movie, layout: false});
 });
 
+
+
 module.exports = router

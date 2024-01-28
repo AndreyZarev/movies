@@ -18,9 +18,7 @@ router.use(createController)
 
 
 
-router.get('/search', (req, res) => {
-    res.render("search", { layout: false });
-});
+
 
 router.get('/*', (req, res) => {
     res.render("404", { layout: false });
