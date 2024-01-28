@@ -22,7 +22,17 @@ exports.create = (movieData) => {
 }
 
 exports.getOne = (movieId) => { 
-    console.log(movies[movieId]);
-return movies[movieId];
+
+    let correctOne 
+    // const movie = movies.find(movie => movies._id == movieId);
+    const movie = movies.forEach(movie => {
+       
+        if (movie._id == movieId) {
+           correctOne  = movie
+
+        }
+    });
+   
+return correctOne;
 };
 
