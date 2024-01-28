@@ -14,8 +14,9 @@ router.get('/movies/:movieId', (req, res) => {
 
 const movie = movieService.getOne(movieId)
 const ratingNum = Number(movie.rating);
-// console.log(ratingNum);
-movie.rating = new Array(ratingNum).fill(true)
+
+movie.rendering = new Array(ratingNum)
+movie.rendering.fill(true)
 
 res.render("details", {movie, layout: false});
 });
