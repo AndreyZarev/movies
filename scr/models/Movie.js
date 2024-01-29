@@ -26,7 +26,7 @@ director : {
 rating : {
     type: Number,
     required: true,
-    min: 0,
+    min: 1,
     max: 5,
 },
 
@@ -35,10 +35,10 @@ rating : {
     required: true,
     maxLength: 1000,
  },
-  imageURL: {
+  imageUrl: {
     type: String,
     required: true,
-    match:/^https?/
+    // match: /https?/
   }
 })
 

@@ -1,3 +1,5 @@
+const Movie = require('../models/Movie')
+
 const movies = [
     {
         _id: 1,
@@ -14,11 +16,14 @@ const movies = [
 exports.getAll = () => {
     return [...movies]
 }
+
+
 exports.create = (movieData) => {
-    movieData._id = Number(movies[movies.length - 1]._id) + 1;
-    movies.push(movieData);
-    console.log(movies);
-}
+   
+  const created = Movie.create(movieData);
+    return   created;
+
+};
 
 exports.getOne = (movieId) => {
 
