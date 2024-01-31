@@ -6,7 +6,7 @@ const aboutController = require('./controllers/aboutController')
 
 const createController = require('./controllers/createController')
 
-
+const castController = require('./controllers/castController')
 
 router.use(aboutController)
 
@@ -14,16 +14,16 @@ router.use(homeController)
 
 router.use(createController)
 
-router.use(createController)
+router.use('/cast', castController)
 
 
 
 
 
 
-router.get('/*', (req, res) => {
-    res.render("404", { layout: false });
-});
+// router.get('/*', (req, res) => {
+//     res.render("404", { layout: false });
+// });
 
 
 
