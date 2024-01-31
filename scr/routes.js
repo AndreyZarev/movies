@@ -14,16 +14,16 @@ router.use(homeController)
 
 router.use(createController)
 
-router.use('/cast', castController)
+router.use(castController)
 
 
 
 
 
 
-// router.get('/*', (req, res) => {
-//     res.render("404", { layout: false });
-// });
+router.get('/*', (req, res) => {
+    res.render("404", { layout: false });
+});
 
 
 

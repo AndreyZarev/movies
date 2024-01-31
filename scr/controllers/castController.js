@@ -1,7 +1,11 @@
 const router = require('express').Router()
 
+
 router.get('/cast/create', (req, res) => {
-    res.render('create')
+    console.log("castController" );
+   
+   
+   res.render('cast/createCast')
 })
 
 module.exports = router
