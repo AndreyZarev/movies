@@ -12,7 +12,7 @@ router.get('/search', async (req, res) => {
     const {title, genre, year} = req.query
     const movies = await moviesService.search(title, genre, year).lean();
     console.log(movies);
-    res.render("search", { movies, title, genre, year, layout: false });
+    res.render("search", { movies, title, genre, year});
 });
 
 module.exports = router

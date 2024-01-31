@@ -3,7 +3,7 @@ const movieService = require('../service/movieService')
 
 
 router.get('/about', (req, res) => {
-    res.render("about", { layout: false });
+    res.render("about");
 });
 
 // :movieID
