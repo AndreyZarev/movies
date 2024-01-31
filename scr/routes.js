@@ -14,7 +14,7 @@ router.use(homeController)
 
 router.use(createController)
 
-router.use(castController)
+router.use("/cast", castController)
 
 
 
