@@ -15,4 +15,5 @@ router.get('/search', async (req, res) => {
     res.render("search", { movies, title, genre, year});
 });
 
+
 module.exports = router

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const movieService = require('../service/movieService')
+const castService = require('../service/castService')
 
 
 router.get('/about', (req, res) => {
@@ -18,9 +19,13 @@ const ratingNum = Number(movie.rating);
 movie.rendering = new Array(ratingNum)
 movie.rendering.fill(true)
 
-res.render("details", {movie, layout: false});
+res.render("details", {movie});
 });
 
 
-
+router.get('/movies/:movieId/attach', async (req, res) => {
+const movie = await movieService.getOne(req.params.movieId).lean();
+const casts = await castService.getAll().lean();
+    res.render("movies/attach", {...movie, casts});
+})
 module.exports = router
