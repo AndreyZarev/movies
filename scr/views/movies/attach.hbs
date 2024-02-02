@@ -5,9 +5,9 @@
                 <div class="attach-form">
                     <h2>{{title}}</h2>
                     <img class="movie" src="{{imageUrl}}">
-                    <form action="" method="">
+                    <form action="/movies/{{_id}}/attach" method="POST">
                         <label for="cast">Cast</label>
-                        <select id="cast" name="cast">
+                        <select id="cast" name="castId">
                         <option value="none" selected>--------</option>
                         {{#each casts}}
                         <option value="{{_id}}">{{name}}</option>
