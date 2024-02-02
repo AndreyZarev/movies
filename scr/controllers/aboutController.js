@@ -28,4 +28,17 @@ const movie = await movieService.getOne(req.params.movieId).lean();
 const casts = await castService.getAll().lean();
     res.render("movies/attach", {...movie, casts});
 })
+
+router.post('/movies/:movieId/attach', async (req, res) => {
+
+    const castId = req.body.castId;
+    const movie = await movieService.getOne(req.params.movieId)
+
+    movie.casts.push(castId)
+    await movie.save()
+
+    res.redirect(`/movies/${movie._id}/attach`)
+})
+
+
 module.exports = router
