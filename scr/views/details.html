@@ -1,11 +1,11 @@
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Details Page</title>
     <!-- Do not forget to change the path to the css file -->
-    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -16,17 +16,17 @@
             <img src="./static/img/logo.webp" alt="logo">
 
             <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/create">Create Post</a></li>
-                <li><a href="/cast/create">Create Cast</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Create Post</a></li>
+                <li><a href="#">Create Cast</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">About</a></li>
             </ul>
 
         </nav>
 
 
-        <main> --}}
+        <main>
 
             <section id="details-page">
 
@@ -34,28 +34,33 @@
                     <div class="card_left">
                         <div class="card_datails">
 
-                            <h1>{{movie.title}}</h1>
+                            <h1>The Little Mermaid</h1>
                             <div class="card-movie">
                                 <div class="first-info">
-                                    <p class="card-genre">Genre: {{movie.genre}}</p>
-                                    <p class="card-director">Directror: {{movie.director}}</p>
+                                    <p class="card-genre">Genre: Fantasy</p>
+                                    <p class="card-director">Directror: Rob Marshall</p>
                                 </div>
                                 <div class="second-info">
-                                    <p class="card-year">Year: {{movie.year}}</p>
-                                    <p class="card-ranking">Rating: <span id="stars">{{#each movie.rendering}}&#x2605;{{/each}}</span></p>
+                                    <p class="card-year">Year: 2023</p>
+                                    <p class="card-ranking">Rating: <span id="stars">&#x2605; &#x2605; &#x2605;
+                                            &#x2605;</span></p>
                                 </div>
 
                             </div>
 
-                            <p class="disc">{{movie.description}}</p>
+                            <p class="disc">Description: The youngest of King Triton's daughters, Ariel is a beautiful
+                                and spirited young mermaid with a thirst for adventure. Longing to find out more about
+                                the world beyond the sea, Ariel visits the surface and falls for the dashing Prince
+                                Eric. Following her heart, she makes a deal with the evil sea witch, Ursula, to
+                                experience life on land.</p>
                         </div>
                     </div>
                     <div class="card_right">
-                        <img src="{{movie.imageUrl}}"
-                            alt="image">
+                        <img src="./static/img/the-little-mermaid.jpg" alt="image">
                     </div>
+                </div>
 
-                       <div class="main-cast-card">
+                <div class="main-cast-card">
                     <div class="cast-card">
                         <div class="card-img">
                             <img src="https://images.toofab.com/image/4e/1by1/2022/11/08/4ea2669b9964450bb8d3e28d5bff9a1f_xl.jpg"
@@ -81,12 +86,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
+    </div>
 
-            </section>
+    </section>
 
-
-    {{!-- </main>
+    </main>
 
 
     <footer>
@@ -96,4 +100,4 @@
 
 </body>
 
-</html> --}}
+</html>
