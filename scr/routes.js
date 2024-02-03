@@ -8,6 +8,8 @@ const createController = require('./controllers/createController')
 
 const castController = require('./controllers/castController')
 
+const authController = require('./controllers/authController')
+
 router.use(aboutController)
 
 router.use(homeController)
@@ -16,6 +18,7 @@ router.use(createController)
 
 router.use("/cast", castController)
 
+router.use("/auth", authController)
 
 
 
