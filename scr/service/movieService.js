@@ -12,27 +12,27 @@ exports.create = (movieData) => Movie.create(movieData);
    
 
 
-exports.getOne = (movieId) => Movie.findById(movieId);
+exports.getOne = (movieId) => Movie.findById(movieId).populate('casts');
 
 
    
  
 
 exports.search =  (title, genre, year) => {
-let moviesResult =  Movie.find()
+let query = {}
 
     if (title) {
-        moviesResult = moviesResult.filter(movie => movie.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()))
+        query.title = new RegExp(title, 'i');
     }
 
     if (genre) {
-        moviesResult = moviesResult.filter(movie => movie.title.toLocaleLowerCase().includes(genre.toLocaleLowerCase()))
+       query.genre = genre.toLowerCase();
             }
 
     if (year) {
-        moviesResult = moviesResult.filter(movie => movie.year == year)
+        query.year = year
                     }   
 
                    
-                    return moviesResult;      
+                    return Movie.find(query);      
 };
