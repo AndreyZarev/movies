@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose')
+const {Schema, model, MongooseError} = require('mongoose')
 
 const bcrypt = require('bcrypt')
 const { use } = require('../routes')
@@ -16,15 +16,22 @@ const userSchema = new Schema({
         required: true
     },
 
-    // rePassword: {
-    //     type: String,
-    //     required: true
-    // }
+  
 })
 userSchema.pre('save', async function(){
     const hash = await bcrypt.hash(this.password, 12)
 console.log(hash);
     this.password = hash
+})
+
+userSchema.virtual("rePassword")
+.set(function(value){
+if (value !== this.password){
+
+throw new MongooseError("Passwords do not match!")
+
+}
+
 })
 
 const User = model("User", userSchema)
