@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-
+const util = require('util');
 
 function sign(payload, secretOrPrivateKey, options = {}) {
     const promise = new Promise((resolve, reject) => {
