@@ -24,11 +24,11 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     const {email, password} = req.body;
-    console.log(email, password);
+    
     try {
     
         const token = await authService.login(email, password);
-
+// we have a token
         res.cookie('auth', token);
 
         res.redirect('/');
