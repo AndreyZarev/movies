@@ -17,6 +17,11 @@ router.get('/search', async (req, res) => {
 
 router.get("/movie/:movieId/edit", async (req, res) => {
 
+
+//     
+    if(!req.user){
+        res.redirect("/auth/login")
+    }
     const movieId = req.params.movieId
       const movie = await moviesService.getOne(movieId).lean();
     
