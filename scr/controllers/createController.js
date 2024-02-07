@@ -1,7 +1,8 @@
 const router = require('express').Router()
 
 const movieService = require('./../service/movieService')
-
+const {isAuth} = require('../middleware/authMiddleware')
+router.use(isAuth)
 router.get('/movie/create', (req, res) => {
     res.render("create");
 });

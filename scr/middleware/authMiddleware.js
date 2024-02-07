@@ -23,4 +23,11 @@ return res.redirect("/auth/login")
 
 }
 };
-//checking
+
+
+exports.isAuth =  (req, res, next) => {
+    if(!req.user){
+        res.redirect("/auth/login")
+    }
+    next()
+}

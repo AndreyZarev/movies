@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const moviesService = require('./../service/movieService')
+const {isAuth} = require('../middleware/authMiddleware')
 
 
 router.get('/', async (req, res) => {
@@ -15,13 +16,13 @@ router.get('/search', async (req, res) => {
     res.render("search", { movies, title, genre, year});
 });
 
-router.get("/movie/:movieId/edit", async (req, res) => {
+router.get("/movie/:movieId/edit", isAuth, async (req, res) => {
 
 
 //     
-    if(!req.user){
-        res.redirect("/auth/login")
-    }
+    // if(!req.user){
+    //     res.redirect("/auth/login")
+    // }
     const movieId = req.params.movieId
       const movie = await moviesService.getOne(movieId).lean();
     
