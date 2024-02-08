@@ -19,14 +19,18 @@ router.get('/search', async (req, res) => {
 router.get("/movie/:movieId/edit", isAuth,async (req, res) => {
 
 
-    
-    // if(!req.user){
-    //     res.redirect("/auth/login")
-    // }
     const movieId = req.params.movieId
       const movie = await moviesService.getOne(movieId).lean();
     
     res.render("movies/edit", { movie });
 });
+
+router.post('/movie/:movieId/edit',isAuth, async (req, res) => {
+const movieData = req.body
+const movieId = req.params.movieId
+
+await moviesService.edit(req.params.movieId, movieData)
+res.redirect(`/movies/${movieId}`)
+})
 
 module.exports = router
