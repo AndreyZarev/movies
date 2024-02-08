@@ -15,7 +15,9 @@ function sign(payload, secretOrPrivateKey, options = {}) {
     return promise;
 }
 
+
 const verify =  util.promisify(jwt.verify);
+
 module.exports = {
     sign,
     verify,
