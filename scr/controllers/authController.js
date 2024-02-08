@@ -34,11 +34,14 @@ router.post('/login', async (req, res) => {
         res.redirect('/');
     } catch  {
         
-console.log("we cannot login");
+
         res.status(400).render('auth/login', { error: "message" });
     }
    
 })
-    
+    router.get("/logout", async (req, res) => {
+        res.clearCookie('auth');
+        res.redirect('/');
+    });
 
 module.exports = router
