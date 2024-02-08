@@ -42,5 +42,11 @@ router.post('/movies/:movieId/attach',  async (req, res) => {
     res.redirect(`/movies/${movie._id}/attach`)
 })
 
+router.get('/movies/:movieId/delete', async (req, res) => {
+    
+    await movieService.delete(req.params.movieId)
+    res.redirect("/")
+});
+
 
 module.exports = router
