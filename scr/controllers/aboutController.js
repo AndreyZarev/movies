@@ -11,26 +11,27 @@ router.get('/about', (req, res) => {
 router.get('/movies/:movieId', async (req, res) => {
 
     const movieId = req.params.movieId
-   
+ 
 
 const movie = await movieService.getOne(movieId).lean();
+const isUser = movie.owner == req.user?._id
 
 const ratingNum = Number(movie.rating);
 
 movie.rendering = new Array(ratingNum)
 movie.rendering.fill(true)
 
-res.render("details", {movie});
+res.render("details", {movie, isUser});
 });
 
 
-router.get('/movies/:movieId/attach', isAuth, async (req, res) => {
+router.get('/movies/:movieId/attach',isAuth, async (req, res) => {
 const movie = await movieService.getOne(req.params.movieId).lean();
 const casts = await castService.getAll().lean();
     res.render("movies/attach", {...movie, casts});
 })
 
-router.post('/movies/:movieId/attach',isAuth, async (req, res) => {
+router.post('/movies/:movieId/attach',  async (req, res) => {
 
     const castId = req.body.castId;
     const movie = await movieService.getOne(req.params.movieId)
