@@ -15,6 +15,7 @@ try {
     const decodedToken = await jwt.verify(token, SECRET)
 
     req.user = decodedToken
+res.locals.isAuthenticated = true
 
     next()
 } catch  {
