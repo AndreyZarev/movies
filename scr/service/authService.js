@@ -29,6 +29,6 @@ const playload = {
 }
 
 const token = await jwt.sign(playload, SECRET, {expiresIn: "2h"})
-console.log(SECRET, token);
+
 return token;
 };
