@@ -2,15 +2,19 @@ const router = require('express').Router()
 
 const movieService = require('./../service/movieService')
 const {isAuth} = require('../middleware/authMiddleware')
-router.use(isAuth)
-router.get('/movie/create', (req, res) => {
+
+
+
+router.get('/movie/create',isAuth, (req, res) => {
     res.render("create");
 });
 
 router.post('/movie/create', async (req, res) => {
-   const newMovie = req.body
-
-   try {
+   const newMovie = {
+    ...req.body,
+owner: req.user._id
+      }
+         try {
     await movieService.create(newMovie);
     res.redirect('/')
    } catch (err) {

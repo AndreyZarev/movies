@@ -16,10 +16,10 @@ router.get('/search', async (req, res) => {
     res.render("search", { movies, title, genre, year});
 });
 
-router.get("/movie/:movieId/edit", isAuth, async (req, res) => {
+router.get("/movie/:movieId/edit", isAuth,async (req, res) => {
 
 
-//     
+    
     // if(!req.user){
     //     res.redirect("/auth/login")
     // }
