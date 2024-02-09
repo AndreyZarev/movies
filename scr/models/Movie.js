@@ -6,10 +6,14 @@ const movieSchema = new mongoose.Schema({
 title: {
         type: String,
         required: true,
+        minLength: 5,
+        match: /^[a-zA-Z0-9]+$/
     },
 genre : {
     type: String,
     required: true,
+    minLength: 5,
+    match: /^[a-zA-Z0-9]+$/
 },
 
 director : {
@@ -38,7 +42,13 @@ rating : {
   imageUrl: {
     type: String,
     required: true,
-    // match: /https?/
+    validate: {
+validator(value){
+  return /^https?:\/\//.test(value)
+},
+message: (props) => `${props.value} is invalid url for the imageUrl`
+    }
+    
   },
 
   casts: [{
